@@ -4,25 +4,40 @@ import { generateSlug } from "random-word-slugs";
 import { prisma } from "@/lib/db";
 import { inngest } from "@/inngest/client";
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
-
+import { TRPCError } from "@trpc/server";
 
 export const projectsRouter = createTRPCRouter({
-  getMany: baseProcedure.query(async () => {
-    const projects = await prisma.project.findMany({
-      orderBy: {
-        updatedAt: "desc",
-      },
-    });
-    return projects;
-  }),
+  getOne: baseProcedure
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "ID is required" }),
+      })
+    )
+    .query(async ({ input }) => {
+      const existingProject = await prisma.project.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!existingProject) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Project not found",
+        });
+      }
+
+      return existingProject;
+    }),
 
   create: baseProcedure
     .input(
       z.object({
-        value: z.string()
-        .min(1, { message: "Value is required" })
-        .max(1000, { message: "Value must be 1000 characters or less" }),
-      }),
+        value: z
+          .string()
+          .min(1, { message: "Value is required" })
+          .max(1000, { message: "Value must be 1000 characters or less" }),
+      })
     )
     .mutation(async ({ input }) => {
       const createdProject = await prisma.project.create({
