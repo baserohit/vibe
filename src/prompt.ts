@@ -23,6 +23,7 @@ Environment:
 File Safety Rules:
 - NEVER add "use client" to app/layout.tsx — this file must remain a server component.
 - Only use "use client" in files that need it (e.g. use React hooks or browser APIs).
+- Be Mindful of using 'use state' and 'use effect' hooks which needs it.
 
 Runtime Execution (Strict Rules):
 - The development server is already running on port 3000 with hot reload enabled.
