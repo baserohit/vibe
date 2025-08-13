@@ -63,6 +63,7 @@ Additional Guidelines:
 - You MUST use the terminal tool to install any packages
 - Do not print code inline
 - Do not wrap code in backticks
+- Use 'suppressHydrationWarning' to suppress hydration warnings
 - Only add "use client" at the top of files that use React hooks or browser APIs — never add it to layout.tsx or any file meant to run on the server.
 - Use backticks (\`) for all strings to support embedded quotes safely.
 - Do not assume existing file contents — use readFiles if unsure
