@@ -130,7 +130,7 @@ export const FileExplorer = ({ files }: FileExplorerProps) => {
         minSize={30}
         className="bg-sidebar flex flex-col min-h-0"
       >
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-auto scrollbar-hide">
           <TreeView
             data={treeData}
             value={selectedFile}
@@ -157,7 +157,7 @@ export const FileExplorer = ({ files }: FileExplorerProps) => {
                 </Button>
               </Hint>
             </div>
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 overflow-auto scrollbar-hide">
               <CodeView
                 code={files[selectedFile]}
                 lang={getLanguageFromExtension(selectedFile)}
