@@ -1136,6 +1136,7 @@ export namespace Prisma {
   export type ProjectMinAggregateOutputType = {
     id: string | null
     name: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1143,6 +1144,7 @@ export namespace Prisma {
   export type ProjectMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1150,6 +1152,7 @@ export namespace Prisma {
   export type ProjectCountAggregateOutputType = {
     id: number
     name: number
+    userId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1159,6 +1162,7 @@ export namespace Prisma {
   export type ProjectMinAggregateInputType = {
     id?: true
     name?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1166,6 +1170,7 @@ export namespace Prisma {
   export type ProjectMaxAggregateInputType = {
     id?: true
     name?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1173,6 +1178,7 @@ export namespace Prisma {
   export type ProjectCountAggregateInputType = {
     id?: true
     name?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1253,6 +1259,7 @@ export namespace Prisma {
   export type ProjectGroupByOutputType = {
     id: string
     name: string
+    userId: string
     createdAt: Date
     updatedAt: Date
     _count: ProjectCountAggregateOutputType | null
@@ -1277,6 +1284,7 @@ export namespace Prisma {
   export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     messages?: boolean | Project$messagesArgs<ExtArgs>
@@ -1286,6 +1294,7 @@ export namespace Prisma {
   export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["project"]>
@@ -1293,6 +1302,7 @@ export namespace Prisma {
   export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["project"]>
@@ -1300,11 +1310,12 @@ export namespace Prisma {
   export type ProjectSelectScalar = {
     id?: boolean
     name?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     messages?: boolean | Project$messagesArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -1320,6 +1331,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      userId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["project"]>
@@ -1748,6 +1760,7 @@ export namespace Prisma {
   interface ProjectFieldRefs {
     readonly id: FieldRef<"Project", 'String'>
     readonly name: FieldRef<"Project", 'String'>
+    readonly userId: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly updatedAt: FieldRef<"Project", 'DateTime'>
   }
@@ -4384,6 +4397,7 @@ export namespace Prisma {
   export const ProjectScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4547,6 +4561,7 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     id?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
+    userId?: StringFilter<"Project"> | string
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     messages?: MessageListRelationFilter
@@ -4555,6 +4570,7 @@ export namespace Prisma {
   export type ProjectOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     messages?: MessageOrderByRelationAggregateInput
@@ -4566,6 +4582,7 @@ export namespace Prisma {
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     name?: StringFilter<"Project"> | string
+    userId?: StringFilter<"Project"> | string
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     messages?: MessageListRelationFilter
@@ -4574,6 +4591,7 @@ export namespace Prisma {
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProjectCountOrderByAggregateInput
@@ -4587,6 +4605,7 @@ export namespace Prisma {
     NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Project"> | string
     name?: StringWithAggregatesFilter<"Project"> | string
+    userId?: StringWithAggregatesFilter<"Project"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
   }
@@ -4727,6 +4746,7 @@ export namespace Prisma {
   export type ProjectCreateInput = {
     id?: string
     name: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     messages?: MessageCreateNestedManyWithoutProjectInput
@@ -4735,6 +4755,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateInput = {
     id?: string
     name: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     messages?: MessageUncheckedCreateNestedManyWithoutProjectInput
@@ -4743,6 +4764,7 @@ export namespace Prisma {
   export type ProjectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     messages?: MessageUpdateManyWithoutProjectNestedInput
@@ -4751,6 +4773,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     messages?: MessageUncheckedUpdateManyWithoutProjectNestedInput
@@ -4759,6 +4782,7 @@ export namespace Prisma {
   export type ProjectCreateManyInput = {
     id?: string
     name: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4766,6 +4790,7 @@ export namespace Prisma {
   export type ProjectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4773,6 +4798,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4958,6 +4984,7 @@ export namespace Prisma {
   export type ProjectCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4965,6 +4992,7 @@ export namespace Prisma {
   export type ProjectMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4972,6 +5000,7 @@ export namespace Prisma {
   export type ProjectMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5468,6 +5497,7 @@ export namespace Prisma {
   export type ProjectCreateWithoutMessagesInput = {
     id?: string
     name: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5475,6 +5505,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateWithoutMessagesInput = {
     id?: string
     name: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5521,6 +5552,7 @@ export namespace Prisma {
   export type ProjectUpdateWithoutMessagesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5528,6 +5560,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateWithoutMessagesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
