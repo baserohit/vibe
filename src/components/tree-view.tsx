@@ -63,7 +63,7 @@ const Tree = ({ item, selectedValue, onSelect, parentPath }: TreeProps) => {
   const currentPath = parentPath ? `${parentPath}/${name}` : name;
 
   if (!items.length) {
-    // It's a file
+    // It is a file
     const isSelected = selectedValue === currentPath;
 
     return (
@@ -78,7 +78,7 @@ const Tree = ({ item, selectedValue, onSelect, parentPath }: TreeProps) => {
     );
   }
 
-  // It's a directory
+  // It is a directory
   return (
     <SidebarMenuItem>
       <Collapsible

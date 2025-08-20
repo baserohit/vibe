@@ -1,6 +1,5 @@
 import { RateLimiterPrisma } from "rate-limiter-flexible";
 import { prisma } from "@/lib/db";
-import { FingerprintIcon } from "lucide-react";
 import { auth } from "@clerk/nextjs/server";
 
 const FREE_POINTS = 5;

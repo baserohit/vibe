@@ -1,7 +1,6 @@
 import { TreeItem } from "@/types";
 import { AgentResult, TextMessage } from "@inngest/agent-kit";
 import { clsx, type ClassValue } from "clsx";
-import path from "path";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
